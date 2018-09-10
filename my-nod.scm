@@ -1,3 +1,5 @@
+; Поиск наименьшего общего делителя
+
 (define (my-nod-2 a b)
     (cond ((= (remainder a b) 0)
           a)
