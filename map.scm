@@ -3,4 +3,4 @@
       (cons (proc (car items))
             (my-map proc (cdr items)))))
 
-(my-map abs (list -1 -2 3 4))
+(my-map abs (list -1 -2 3 4)) ; (1 2 3 4)
