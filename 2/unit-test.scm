@@ -1,7 +1,7 @@
 (define-syntax test
   (syntax-rules () ; синтаксические правила, пока оставим пустыми
     ; структура теста: в заполнитель вставляется test
-    ; заместо expr -> функция, в нашем случае signum и ожидаемый результат
+    ; заместо expr -> функция (в нашем случае signum) и ожидаемый результат (в нашем случае -1, например)
     ; формат теста: (test (signum -2) -1))
     ((_ expr res) (cons (quote expr) res))))
 
@@ -12,7 +12,7 @@
   (if (equal? (eval (car tests) (interaction-environment)) (cdr tests))
       (and (display "ok") (newline))
       (and (display "FAIL\n")
-           ; иначе мы выводим на экран то, что ожидалось, и то, что получилось
+           ; иначе мы выводим на экран то, что ожидалось, и то, что получилось, и передаем на вход рекурсивно остальные тесты
            (display "  Expected: ") (display (cdr tests)) (newline)
            (display "  Returned: ") (display (eval (car tests) (interaction-environment)))
            (newline)))
